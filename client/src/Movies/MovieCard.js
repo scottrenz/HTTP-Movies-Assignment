@@ -1,7 +1,10 @@
 import React from 'react';
-
+import { Link } from "react-router-dom";
+import UpdateMovie from './UpdateMovie'
+import DeleteMovie from './DeleteMovie'
 const MovieCard = props => {
   const { title, director, metascore, stars } = props.movie;
+  console.log('props in movie card',props)
   return (
     <div className="movie-card">
       <h2>{title}</h2>
@@ -18,6 +21,14 @@ const MovieCard = props => {
           {star}
         </div>
       ))}
+      
+              {/* <div className="update-button"> */}
+              {/* <Link to={`/update-movie/${props.movie.id}`}> */}
+              <UpdateMovie state={props} />
+              <DeleteMovie state={props} />
+    {/* </Link> */}
+{/* </div> */}
+
     </div>
   );
 };

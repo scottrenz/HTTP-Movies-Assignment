@@ -4,6 +4,7 @@ import SavedList from "./Movies/SavedList";
 import MovieList from "./Movies/MovieList";
 import Movie from "./Movies/Movie";
 import UpdateMovie from "./Movies/UpdateMovie";
+import DeleteMovie from "./Movies/DeleteMovie";
 
 const App = () => {
   const [savedList, setSavedList] = useState([]);
@@ -22,7 +23,7 @@ const App = () => {
           return <Movie {...props} addToSavedList={addToSavedList} />;
         }}
       />
-// //////////////////
+
 {/* <Route
         path="/update-item/:id"
         render={props => (
@@ -30,12 +31,19 @@ const App = () => {
         )}
       /> */}
 
-// /////////////////
 
-      <Route
+{/* <Route path="/update-movie/:id" component={UpdateMovie} /> */}
+
+<Route
         path="/update-movie/:id"
         render={props => {
           return <UpdateMovie {...props} movies={MovieList.movies} setMovies={MovieList.setMovies} />;
+        }}
+      />
+      <Route
+        path="/delete-movie/:id"
+        render={props => {
+          return <DeleteMovie {...props} movies={MovieList.movies} setMovies={MovieList.setMovies} />;
         }}
       />
     </>
